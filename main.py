@@ -66,7 +66,6 @@ with open(local_conf, encoding='utf8') as f:
 json_data["config.py->GlobalConfig"]["num_threads"] = 1
 json_data["config.py->GlobalConfig"]["fold"] = 1
 json_data["config.py->GlobalConfig"]["test_only"] = True
-
 json_data["MISSION.uhmap.uhmap_env_wrapper.py->ScenarioConfig"]["render"] = True
 json_data["MISSION.uhmap.uhmap_env_wrapper.py->ScenarioConfig"]["UhmapRenderExe"] = './../UnrealEngine/WindowsNoEditor/UHMP.exe'
 json_data["MISSION.uhmap.uhmap_env_wrapper.py->ScenarioConfig"]["TimeDilation"] = 2
