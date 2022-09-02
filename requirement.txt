@@ -1,0 +1,19 @@
+python >= 3.8   # (necessary!)
+pytorch
+lz4
+gym             # (the latest version will do)
+flask
+numpy
+scipy
+numba
+cython
+waitress
+colorama
+func_timeout
+setproctitle
+commentjson
+matplotlib
+psutil
+paramiko        # (for multi-server experiments)
+ipykernel       # (optional, for openning jupyter notebook)
+onedrivedownloader
