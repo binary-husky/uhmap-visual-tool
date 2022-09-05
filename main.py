@@ -58,8 +58,10 @@ import os, shutil, subprocess
 import commentjson as json
 os.chdir('RemoteCode')
 
-local_conf = "C:/Users/fuqingxu/Desktop/uhmap-visual-tool/RemoteCode/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc"
 
+local_conf = os.path.join(os.path.expanduser('~'),"Desktop/") + 'uhmap-visual-tool-main/RemoteCode/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc'
+# local_conf = "C:/Users/fuqingxu/Desktop/uhmap-visual-tool/RemoteCode/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc"
+# local_conf = "C:/Users/taizun/Desktop/uhmap-visual-tool-main/RemoteCode/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc"
 
 with open(local_conf, encoding='utf8') as f:
     json_data = json.load(f)
@@ -69,6 +71,10 @@ json_data["config.py->GlobalConfig"]["test_only"] = True
 json_data["MISSION.uhmap.uhmap_env_wrapper.py->ScenarioConfig"]["render"] = True
 json_data["MISSION.uhmap.uhmap_env_wrapper.py->ScenarioConfig"]["UhmapRenderExe"] = './../UnrealEngine/WindowsNoEditor/UHMP.exe'
 json_data["MISSION.uhmap.uhmap_env_wrapper.py->ScenarioConfig"]["TimeDilation"] = 2
+import torch
+if not torch.cuda.is_available():
+    json_data["config.py->GlobalConfig"]["device"] = 'cpu'
+
 for i in json_data.keys():
     for j in json_data[i].keys():
         if j=='load_specific_checkpoint':
