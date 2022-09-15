@@ -8,7 +8,7 @@ addr = "172.18.116.149:2266"
 usr  = "hmp"
 pwd  = "hmp"
 remote_config = '/home/hmp/MultiServerMission/try-start-pr-db/src/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc'
-remote_folder, _ = remote_config.split('/ZHECKPOINT') 
+remote_folder, json_path = remote_config.split('/ZHECKPOINT') 
 
 
 # download uhmap file manifest | 下载manifest目录文件
@@ -39,7 +39,6 @@ else:
     print('Unreal engine binary exists, skip download.. | 虚幻引擎文件已存在, 跳过下载, 若重试请删除UnrealEngine文件夹')
 
 # Fetch code, trained model from linux server | 从远程服务器拿代码和模型
-# Fetch code, trained model from linux server | 从远程服务器拿代码和模型
 try:
     os.makedirs('./RemoteCode')
 except:
@@ -59,7 +58,7 @@ import commentjson as json
 os.chdir('RemoteCode')
 
 
-local_conf = os.path.join(os.path.expanduser('~'),"Desktop/") + 'uhmap-visual-tool-main/RemoteCode/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc'
+local_conf = 'ZHECKPOINT/'+json_path
 # local_conf = "C:/Users/fuqingxu/Desktop/uhmap-visual-tool/RemoteCode/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc"
 # local_conf = "C:/Users/taizun/Desktop/uhmap-visual-tool-main/RemoteCode/ZHECKPOINT/RVE-drone2-ppoma-run2/experimentT.jsonc"
 
