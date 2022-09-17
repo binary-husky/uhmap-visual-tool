@@ -3,7 +3,7 @@ from onedrivedownloader import download
 from UTIL.exp_helper import get_ssh_sftp
 
 
-VERSION = 'uhmap-linux-headless-v1'
+VERSION = 'starcraft-all-versions'
 
 # download uhmap file manifest | 下载manifest目录文件
 try:
