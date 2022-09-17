@@ -14,7 +14,11 @@ except:
 
 print('download uhmap file manifest | 下载manifest目录文件')
 manifest_url = "https://ageasga-my.sharepoint.com/:u:/g/personal/fuqingxu_yiteam_tech/EVmCQMSUWV5MgREWaxiz_GoBalBRV3DWBU3ToSJ5OTQaLQ?e=I8yjl9"
-file = download(manifest_url, filename="./Temp/")
+try:
+    file = download(manifest_url, filename="./Temp/")
+except:
+    print('failed to connect to onedrive | 连接onedrive失败, 您可能需要翻墙才能下载资源')
+
 with open("./Temp/uhmap_manifest.jsonc", "r") as f:
     manifest = commentjson.load(f)
 
